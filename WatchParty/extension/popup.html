@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { background: linear-gradient(135deg, #141414 0%, #050505 100%); color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 20px; width: 250px; margin: 0; }
+        .container { text-align: center; }
+        .title { color: #E50914; font-size: 20px; font-weight: 900; letter-spacing: 1.5px; margin: 0 0 5px 0; }
+        .description { color: #777; font-size: 11px; margin-bottom: 20px; }
+        .box { background: #222; border-radius: 4px; padding: 8px 12px; margin-bottom: 15px; border: 1px solid #2d2d2d; text-align: left; }
+        .box label { font-size: 10px; color: #888; text-transform: uppercase; font-weight: bold; }
+        input { width: 100%; box-sizing: border-box; background: transparent; border: none; color: #fff; font-size: 14px; outline: none; margin-top: 4px; }
+        input:disabled { color: #555; }
+        button { width: 100%; padding: 11px; font-weight: bold; font-size: 13px; border: none; border-radius: 4px; cursor: pointer; }
+        #conectarBtn { background: #E50914; color: #fff; }
+        #conectarBtn:hover { background: #bd0811; }
+        #abandonarBtn { background: #333; color: #bbb; display: none; }
+        #abandonarBtn:hover { background: #444; color: #fff; }
+        .status { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 11px; margin-top: 15px; color: #777; }
+        .led { width: 7px; height: 7px; background: #444; border-radius: 50%; }
+        .led.online { background: #46d369; box-shadow: 0 0 6px #46d369; }
+        .led.error { background: #E50914; box-shadow: 0 0 6px #E50914; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">WATCHPARTY</h1>
+        <div class="description">Control de flujo multimedia activo</div>
+        <div class="box">
+            <label>Identificador de Sala</label>
+            <input type="text" id="salaInput" placeholder="Ej. sesion-cine" autocomplete="off">
+        </div>
+        <button id="conectarBtn">Unirse a la Sala</button>
+        <button id="abandonarBtn">Salir de la Sala</button>
+        <div class="status">
+            <div class="led" id="ledStatus"></div>
+            <span id="txtStatus">Inactivo</span>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

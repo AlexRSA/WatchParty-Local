@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "WatchParty Local",
+  "version": "2.0",
+  "description": "Sincronización avanzada con API nativa de Netflix para evitar bloqueos de DRM",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "*://*.netflix.com/*",
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["*://*.netflix.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["socket.io.min.js", "content.js"]
+    }
+  ]
+}
